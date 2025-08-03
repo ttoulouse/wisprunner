@@ -3,4 +3,5 @@
     <name>Wisprunner</name>
     <content src="index.html" />
     <preference name="Orientation" value="landscape" />
+    <preference name="Fullscreen" value="true" />
 </widget>

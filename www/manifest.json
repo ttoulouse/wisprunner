@@ -2,7 +2,7 @@
   "name": "RuneDream",
   "short_name": "RuneDream",
   "start_url": "index.html",
-  "display": "standalone",
+  "display": "fullscreen",
   "orientation": "landscape",
   "background_color": "#89ABE3",
   "theme_color": "#89ABE3",
