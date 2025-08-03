@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>RuneDream</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-orientation" content="landscape">
+  <link rel="apple-touch-icon" href="Obs_orangestar.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="game">
+  <div id="gameContainer">
+    <canvas id="gameCanvas" width="800" height="450"></canvas>
+    <div id="hud">
+      <span id="distance">0m</span>
+      <span id="coins">0</span>
+    </div>
+    <span id="timer">3:00</span>
+    <div id="gameOver">
+      <p>You lost!</p>
+      <img id="returnBtn" class="menu-button" src="button_return.png" alt="Return">
+    </div>
+    <div id="respawnMsg">Coming back in...</div>
+  </div>
+  <script src="js/game.js"></script>
+  <script>
+    window.addEventListener('load', () => {
+      const params = new URLSearchParams(window.location.search);
+      const mode = params.get('mode') === 'time' ? 'time' : 'normal';
+      startGame(mode);
+      document.getElementById('returnBtn').addEventListener('click', () => {
+        window.location.href = 'index.html';
+      });
+    });
+  </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js');
+      });
+    }
+  </script>
+</body>
+</html>

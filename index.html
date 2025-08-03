@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>RuneDream</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-orientation" content="landscape">
+  <link rel="apple-touch-icon" href="Obs_orangestar.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="landing">
+  <div id="landing">
+    <div id="scores">
+      <div id="normalScores" class="scoreTable">
+        <h2>High Scores</h2>
+        <ol id="scoreList"></ol>
+      </div>
+      <div id="taScores" class="scoreTable">
+        <h2>Time Attack</h2>
+        <ol id="taScoreList"></ol>
+      </div>
+    </div>
+    <div id="buttonCluster">
+      <img id="playBtn" class="menu-button" src="button_playgame.png" alt="Play Game">
+      <img id="timeBtn" class="menu-button" src="button_timeattack.png" alt="Time Attack Mode">
+      <img id="shopBtn" class="menu-button" src="button_upgradeshop.png" alt="Upgrade Shop">
+      <img id="resetBtn" class="menu-button" src="button_resetprogress.png" alt="Reset Progress">
+      <img id="settingsBtn" class="menu-button" src="button_settings.png" alt="Settings">
+      <img id="exitBtn" class="menu-button" src="button_exitgame.png" alt="Exit Game">
+    </div>
+  </div>
+  <script>
+    document.getElementById('playBtn').addEventListener('click', () => {
+      window.location.href = 'game.html';
+    });
+    document.getElementById('timeBtn').addEventListener('click', () => {
+      window.location.href = 'game.html?mode=time';
+    });
+    document.getElementById('shopBtn').addEventListener('click', () => {
+      window.location.href = 'upgrade.html';
+    });
+    document.getElementById('settingsBtn').addEventListener('click', () => {
+      window.location.href = 'settings.html';
+    });
+    document.getElementById('exitBtn').addEventListener('click', () => {
+      window.close();
+    });
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      localStorage.setItem('coins', '0');
+      localStorage.setItem('jumpLevel', '0');
+      localStorage.setItem('dashLevel', '0');
+      localStorage.setItem('shieldLevel', '0');
+      localStorage.setItem('jumpHeightLevel', '0');
+      localStorage.setItem('dashDurationLevel', '0');
+      localStorage.setItem('extraLifeLevel', '0');
+      localStorage.setItem('upgradeCost', '25');
+      alert('Progress reset!');
+    });
+
+    function populate(listId, key) {
+      const arr = JSON.parse(localStorage.getItem(key) || '[]');
+      const el = document.getElementById(listId);
+      el.innerHTML = '';
+      arr.forEach(s => {
+        const li = document.createElement('li');
+        li.textContent = s + 'm';
+        el.appendChild(li);
+      });
+    }
+    populate('scoreList', 'scores');
+    populate('taScoreList', 'taScores');
+  </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js');
+      });
+    }
+  </script>
+</body>
+</html>
