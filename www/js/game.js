@@ -1,5 +1,12 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
 const distanceEl = document.getElementById('distance');
 const coinsEl = document.getElementById('coins');
 const gameOverEl = document.getElementById('gameOver');
@@ -7,23 +14,23 @@ const timerEl = document.getElementById('timer');
 
 const ASSETS = {
   run: [
-    'RuneDreamAssets/sprite_run_1.png',
-    'RuneDreamAssets/sprite_run_2.png',
-    'RuneDreamAssets/sprite_run_3.png',
-    'RuneDreamAssets/sprite_run_4.png',
-    'RuneDreamAssets/sprite_run_5.png'
+    'assets/RuneDreamAssets/sprite_run_1.png',
+    'assets/RuneDreamAssets/sprite_run_2.png',
+    'assets/RuneDreamAssets/sprite_run_3.png',
+    'assets/RuneDreamAssets/sprite_run_4.png',
+    'assets/RuneDreamAssets/sprite_run_5.png'
   ],
-  dash: 'RuneDreamAssets/sprite_dash_1.png',
-  plat: 'RuneDreamAssets/plat_clouds1.png',
-  orange: 'RuneDreamAssets/Obs_orangestar.png',
-  orangeBreak: 'RuneDreamAssets/Obs_orangestar_break.png',
-  black: 'RuneDreamAssets/Obs_blackstar.png',
-  yellow: 'Obs_yellowstar.png',
+  dash: 'assets/RuneDreamAssets/sprite_dash_1.png',
+  plat: 'assets/RuneDreamAssets/plat_clouds1.png',
+  orange: 'assets/RuneDreamAssets/Obs_orangestar.png',
+  orangeBreak: 'assets/RuneDreamAssets/Obs_orangestar_break.png',
+  black: 'assets/RuneDreamAssets/Obs_blackstar.png',
+  yellow: 'assets/Obs_yellowstar.png',
   yellowBreak: [
-    'Obs_yellowstar_break1.png',
-    'Obs_yellowstar_break2.png',
-    'Obs_yellowstar_break3.png',
-    'Obs_yellowstar_break4.png'
+    'assets/Obs_yellowstar_break1.png',
+    'assets/Obs_yellowstar_break2.png',
+    'assets/Obs_yellowstar_break3.png',
+    'assets/Obs_yellowstar_break4.png'
   ]
 };
 
@@ -33,7 +40,7 @@ let total = ASSETS.run.length + 6 + ASSETS.yellowBreak.length;
 
 const DRAW_OFFSET = 35; // lower sprite to compensate for transparent padding
 
-const music = new Audio('song_Dreamy_Wisps.mp3');
+const music = new Audio('assets/song_Dreamy_Wisps.mp3');
 music.loop = true;
 
 function loadImages(cb) {
