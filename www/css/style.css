@@ -41,16 +41,17 @@ body.game {
 
 #buttonCluster {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   flex-grow: 1;
+  margin-top: 20vh;
 }
 
 #buttonCluster .menu-button {
-  width: min(45vw, 180px);
-  margin: 1.5vmin;
+  width: min(60vw, 300px);
+  margin: 1.5vmin 0;
 }
 
 #gameContainer {
