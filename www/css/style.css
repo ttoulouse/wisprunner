@@ -19,7 +19,7 @@ body.game {
   align-items: center;
   justify-content: flex-start;
   padding: 2vmin;
-  overflow: hidden;
+  overflow-y: auto;
 }
 
 #startBtn,
@@ -41,7 +41,7 @@ body.game {
 
 #buttonCluster {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -49,8 +49,8 @@ body.game {
 }
 
 #buttonCluster .menu-button {
-  width: min(60vw, 300px);
-  margin: 1.5vmin 0;
+  width: min(45vw, 180px);
+  margin: 1.5vmin;
 }
 
 #gameContainer {
