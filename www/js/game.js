@@ -120,7 +120,7 @@ const INPUT = {
 const BASE_SPEED = 2;
 const GAME = {
   speed: BASE_SPEED,
-  gravity: 0.5,
+  gravity: 0.35,
   mode: 'normal',
   timer: 0,
   flashTimer: 0,
@@ -141,7 +141,7 @@ const GAME = {
     dashY: 0,
     jumpCharges: 2,
     maxJumpCharges: 2,
-    jumpStrength: 12,
+    jumpStrength: 14,
     coins: 0,
     hp: 1,
     maxHp: 1,
@@ -170,7 +170,7 @@ function init() {
     parseInt(localStorage.getItem('shieldLevel') || '0');
   GAME.player.maxLives = parseInt(localStorage.getItem('extraLifeLevel') || '0');
   GAME.player.lives = GAME.player.maxLives;
-  GAME.player.jumpStrength = 12 + 2 * parseInt(localStorage.getItem('jumpHeightLevel') || '0');
+  GAME.player.jumpStrength = 14 + 2 * parseInt(localStorage.getItem('jumpHeightLevel') || '0');
   GAME.player.dashDuration = 25 + 5 * parseInt(localStorage.getItem('dashDurationLevel') || '0');
   GAME.player.hp = GAME.player.maxHp;
   coinsEl.textContent = GAME.player.coins;
@@ -226,8 +226,8 @@ function handleInput(e) {
 function handleKeyUp(e) {
   if (e.code === 'ArrowUp' || e.code === 'Space') {
     INPUT.jumpHeld = false;
-    if (GAME.player.vy < -4) {
-      GAME.player.vy = -4;
+    if (GAME.player.vy < -2) {
+      GAME.player.vy = -2;
     }
   }
 }
@@ -255,8 +255,8 @@ function handleTouchStart(e) {
 
 function handleTouchEnd() {
   INPUT.jumpHeld = false;
-  if (GAME.player.vy < -4) {
-    GAME.player.vy = -4;
+  if (GAME.player.vy < -2) {
+    GAME.player.vy = -2;
   }
 }
 
@@ -611,7 +611,7 @@ function restart() {
     parseInt(localStorage.getItem('shieldLevel') || '0');
   GAME.player.maxLives = parseInt(localStorage.getItem('extraLifeLevel') || '0');
   GAME.player.lives = GAME.player.maxLives;
-  GAME.player.jumpStrength = 12 + 2 * parseInt(localStorage.getItem('jumpHeightLevel') || '0');
+  GAME.player.jumpStrength = 14 + 2 * parseInt(localStorage.getItem('jumpHeightLevel') || '0');
   GAME.player.dashDuration = 25 + 5 * parseInt(localStorage.getItem('dashDurationLevel') || '0');
   GAME.player.hp = GAME.player.maxHp;
   GAME.player.x = 100;
