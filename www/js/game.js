@@ -117,7 +117,7 @@ const INPUT = {
   jumpHeld: false
 };
 
-const BASE_SPEED = 4;
+const BASE_SPEED = 2;
 const GAME = {
   speed: BASE_SPEED,
   gravity: 0.5,
@@ -357,11 +357,8 @@ function showRespawnCountdown() {
 
 function update() {
   if (!GAME.player.alive) return;
-  const level = Math.floor(GAME.distance / 5000);
-  if (level > GAME.difficultyLevel) {
-    GAME.difficultyLevel = level;
-    GAME.speed = BASE_SPEED + GAME.difficultyLevel * 0.5;
-  }
+  GAME.difficultyLevel = Math.floor(GAME.distance / 5000);
+  GAME.speed = BASE_SPEED + GAME.distance / 10000;
   if (GAME.mode === 'time') {
     GAME.timer--;
     if (GAME.timer <= 0) {

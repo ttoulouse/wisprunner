@@ -19,7 +19,7 @@ body.game {
   align-items: center;
   justify-content: flex-start;
   padding: 2vmin;
-  overflow-y: auto;
+  overflow: hidden;
   position: relative;
 }
 
@@ -42,37 +42,21 @@ body.game {
 
 #buttonCluster {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  flex-grow: 1;
-  margin-top: 20vh;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: absolute;
+  bottom: 5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90vw;
+  margin-top: 0;
 }
 
 #buttonCluster .menu-button {
-  width: min(60vw, 300px);
-  margin: 1.5vmin 0;
-}
-
-@media (orientation: landscape) {
-  #buttonCluster {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-end;
-    position: absolute;
-    bottom: 5vh;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90vw;
-    margin-top: 0;
-  }
-
-  #buttonCluster .menu-button {
-    width: 18vw;
-    max-width: 140px;
-    margin: 0;
-  }
+  width: 18vw;
+  max-width: 140px;
+  margin: 0;
 }
 
 #gameContainer {
