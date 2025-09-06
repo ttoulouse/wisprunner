@@ -387,7 +387,8 @@ function update() {
       GAME.player.dashBuffer--;
     }
     const prevY = GAME.player.y;
-    GAME.player.vy += GAME.gravity;
+    const gravityEffect = GAME.player.vy > 0 ? GAME.gravity / 2 : GAME.gravity;
+    GAME.player.vy += gravityEffect;
     GAME.player.y += GAME.player.vy;
     const groundLevel = getGroundLevel(GAME.player.x + GAME.player.width / 2) - 20;
     if (GAME.player.vy >= 0 && prevY <= groundLevel && GAME.player.y >= groundLevel) {
