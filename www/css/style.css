@@ -154,3 +154,46 @@ body.game {
   color: gold;
   margin-left: 5px;
 }
+
+#shop ul {
+  list-style: none;
+  padding: 0;
+  width: 90%;
+  max-width: 500px;
+}
+
+.shop-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.upgrade-description {
+  flex: 1;
+  text-align: left;
+  margin-right: 10px;
+}
+
+.shop-button {
+  background: #ffb347;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 20px;
+  font-size: 1.1em;
+  color: #fff;
+  box-shadow: 0 4px #e69500;
+  cursor: pointer;
+}
+
+.shop-button:active {
+  box-shadow: 0 2px #e69500;
+  transform: translateY(2px);
+}
+
+.shop-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
